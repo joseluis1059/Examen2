@@ -2,9 +2,7 @@
 const Types = {
     CREATE_ITEM: "CREATE_ITEM",
     DELETE_ITEM: "DELETE_ITEM",
-    BOOM:"BOOM",
-    check:"CHECK"
-    
+    BOOM:"BOOM"
   };
   // actions
   const createItem = task => ({
@@ -12,12 +10,7 @@ const Types = {
     payload: task
   });
   
-  const check =( month, day) => ({
-    type: Types.DELETE_ITEM,
-    mon:month,
-    da:day
-  });
-
+ 
   const deleteItem = id => ({
     type: Types.DELETE_ITEM,
     payload: id
@@ -32,6 +25,5 @@ const Types = {
     createItem,
     deleteItem,
     boom,
-    check,
     Types
   };

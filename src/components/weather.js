@@ -2,18 +2,9 @@ import React, { Component } from "react";
 
 import {
   withStyles,
-  List,
-  ListItem,
-  ListItemSecondaryAction,
-  ListItemText,
-  IconButton,
-  Grid,
-  TextField,
-  Button,
-  FormControl
+  List
 } from "@material-ui/core";
 
-import DeleteIcon from "@material-ui/icons/Delete";
 import ACTIONS from "../modules/action";
 import { connect } from "react-redux";
 
@@ -35,8 +26,7 @@ const mapStateToProps = state => ({
 });
   
 const mapDispatchToProps = dispatch => ({
-    createItem: item => dispatch(ACTIONS.createItem(item)),
-    deleteItem: id => dispatch(ACTIONS.deleteItem(id))
+    check:(mon,day)=>dispatch(ACTIONS.check(mon,day))
 });
 
 class ProjectCodeName extends Component {
@@ -45,13 +35,21 @@ class ProjectCodeName extends Component {
         this.state = {
             item: ""
         };
-        console.log(this.props.match.params.nombre);
+        
     }
   
 
   generate = () => {
-    if(this.props.match.params.nombre=="March" )
-    return ( this.props.items.map(item => (<h1>Max: {item.max}</h1>)));
+    return ( this.props.items.map(item =>{
+        if(this.props.match.params.dia===item.day){
+            return  <div><h1>Max: {item.max}</h1><br/><h1>Min: {item.min}</h1></div> 
+            
+        }
+        return  <div></div>    
+    }
+    
+    )
+    );
   };
 
  

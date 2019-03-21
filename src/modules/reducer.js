@@ -43,6 +43,7 @@ const todoReducer = (state = defaultState, action) => {
       }
       return newState;
     }
+   
     
     default:
       return state;
